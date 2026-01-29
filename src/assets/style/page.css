@@ -161,8 +161,50 @@ body {
   width: 100%;
   text-align: center;
 }
-.unavailable-text { margin-top: 100px; font-size: 20px; margin-bottom: 20px; }
-.page-unavailable .btn-next {
-  width: 100%; max-width: 400px; background: white; color: black; border-color: black;
+.unavailable-text { 
+    margin-top: 100px; 
+    font-size: 20px; 
+    margin-bottom: 20px; 
 }
-.page-unavailable .loader { border-top-color: var(--unavailable-primary); }
+
+.page-unavailable .btn-next {
+  width: 100%; 
+  max-width: 400px; 
+  background: white; 
+  color: black; 
+  border-color: black;
+}
+
+.page-unavailable .loader { 
+    border-top-color: var(--unavailable-primary); 
+}
+
+/* SAD FACE */
+.sad-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* Jarak ke tulisan */
+}
+
+.eyes-container {
+  display: flex;
+  gap: 60px; /* Jarak antar mata */
+  margin-bottom: 20px;
+}
+
+.eye {
+  width: 70px;
+  height: 70px;
+  background-color: #dcdcdc; /* Warna abu-abu sesuai desain */
+  border-radius: 50%; /* Membuat kotak jadi bulat sempurna */
+}
+
+.mouth {
+  width: 250px;
+  height: 100px;
+  border: 15px solid #dcdcdc; /* Ketebalan bibir */
+  border-bottom: 0; /* Hapus border bawah biar tidak jadi kotak */
+  border-top-left-radius: 150px; /* Lengkungan kiri */
+  border-top-right-radius: 150px; /* Lengkungan kanan */
+}
