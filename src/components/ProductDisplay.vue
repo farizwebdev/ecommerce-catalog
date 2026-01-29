@@ -20,15 +20,16 @@
             <div class="category-row">
                 <span>{{ product.category }}</span>
                 
+                ```html
                 <div class="rating-container">
-                    <span style="margin-right: 10px; font-weight: 700;">{{ product.rating && product.rating.rate }}/5</span>
-                    
-                    <div 
+                <span style="margin-right: 10px; font-weight: 700;">{{ product.rating && product.rating.rate }}/5</span>
+                
+                <div 
                     v-for="i in 5" 
                     :key="i" 
                     class="circle"
-                    :class="{ 'filled': i <= Math.round(product.rating.rate) }"
-                    ></div>
+                    :class="{ 'filled': i <= (product.rating ? Math.round(product.rating.rate) : 0) }"
+                ></div>
                 </div>
             </div>
 
