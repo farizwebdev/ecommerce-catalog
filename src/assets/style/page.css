@@ -300,3 +300,90 @@ body {
     border-top-left-radius: 150px; 
     border-top-right-radius: 150px; 
 }
+
+/* RESPONSIVE / MOBILE VIEW */
+
+/* Tablet & Mobile (Layar dibawah 768px) */
+@media screen and (max-width: 768px) {
+  
+  /* Container lebih rapat */
+  .container {
+    padding: 20px;
+    align-items: flex-start; /* Biar scroll enak ke bawah */
+    padding-top: 40px;
+  }
+
+  /* Card jadi memanjang ke bawah (Column) */
+  .product-card {
+    flex-direction: column;
+    padding: 30px 20px;
+    height: auto; /* Tinggi menyesuaikan isi */
+    min-height: auto;
+  }
+
+  /* Konten ditumpuk: Gambar di atas, Teks di bawah */
+  .product-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: left; /* Atau center kalau mau rata tengah */
+  }
+
+  /* Gambar dikecilin biar gak menuhin layar HP */
+  .product-image img {
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* Font ukuran mobile */
+  .title {
+    font-size: 22px;
+  }
+  
+  .description {
+    font-size: 14px;
+  }
+  
+  .price {
+    font-size: 26px;
+  }
+
+  /* Rating Circles dirapikan */
+  .category-row {
+    flex-direction: row; /* Tetap baris tapi rapi */
+    justify-content: space-between;
+    font-size: 13px;
+  }
+
+  /* Halaman Unavailable (Sad Face) dikecilin */
+  .unavailable-content {
+    height: auto;
+    padding: 40px 0;
+  }
+  
+  .sad-face {
+    transform: scale(0.7); /* Kecilkan wajah sedih 70% */
+    margin-bottom: 10px;
+  }
+  
+  .unavailable-text {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  
+  /* Tombol next di mobile full width */
+  .page-unavailable .btn-next {
+    width: 100%; 
+  }
+}
+
+/* Mobile Kecil (HP jadul / kecil banget) */
+@media screen and (max-width: 480px) {
+  .actions {
+    flex-direction: column; /* Tombol Buy & Next jadi atas-bawah */
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
