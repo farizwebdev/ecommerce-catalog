@@ -227,12 +227,15 @@ body {
   text-align: center;
   height: 400px;
 }
+
 .page-unavailable .btn-next {
-  width: auto; 
-  padding: 12px 50px; 
-  background: white; 
-  color: black; 
-  border-color: black;
+  width: 100%;          
+  max-width: 480px;     
+  background: white;
+  color: black;
+  border-color: black;  
+  margin-top: 20px;     
+  display: block;       
 }
 
 .page-unavailable .loader { 
