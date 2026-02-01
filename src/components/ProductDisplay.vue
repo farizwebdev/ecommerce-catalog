@@ -72,9 +72,7 @@
 
         <div v-else class="unavailable-content">
           <img src="../assets/sad-face.png" alt="Sad Face" class="sad-face-img">
-
           <p class="unavailable-text">This product is unavailable to show</p>
-
           <button class="btn btn-next" @click="nextProduct">Next product</button>
         </div>
 
@@ -89,16 +87,22 @@ export default {
   name: 'ProductDisplay',
   data () {
     return {
-      index: 1, // Mulai dari index 1
-      product: {}, // Data produk
-      loading: false, // Status loading
-      isUnavailable: false, // Status availability
-      categoryClass: '', // Helper untuk class CSS
-      showModal: true // Default true biar muncul pas load
+      // Data Produk
+      index: 1, // Index produk saat ini (mulai dari 1)
+      product: {},
+
+      // Status UI (Loading, Error, Modal)
+      loading: false,
+      isUnavailable: false, // True jika kategori bukan Pria/Wanita
+      showModal: true, // Mengontrol visibilitas modal selamat datang
+      categoryClass: '' // Helper untuk mengatur tema CSS dinamis
     }
   },
   computed: {
-    // Menentukan class CSS berdasarkan kategori
+    /**
+     * Menentukan class CSS untuk container utama berdasarkan kategori produk.
+     * Output: 'page-men', 'page-women', atau 'page-unavailable'
+     */
     containerClass () {
       return {
         'page-men': this.categoryClass === "men's clothing",
@@ -108,10 +112,14 @@ export default {
     }
   },
   methods: {
+    /**
+     * Mengambil data produk dari FakeStoreAPI berdasarkan index saat ini.
+     * Menangani status loading dan logika filter kategori.
+     */
     async getProduct () {
-      this.loading = true // Nyalakan spinner
+      this.loading = true
 
-      // Reset index jika melebihi 20 (Sesuai Hint Dokumen)
+      // Reset index ke 1 jika melebihi jumlah produk di API (20)
       if (this.index > 20) {
         this.index = 1
       }
@@ -120,34 +128,36 @@ export default {
         const response = await fetch(`https://fakestoreapi.com/products/${this.index}`)
         const data = await response.json()
 
-        // Cek apakah kategori sesuai yang diminta
+        // Filter Bisnis: Hanya tampilkan kategori Pakaian Pria atau Wanita
         if (data.category === "men's clothing" || data.category === "women's clothing") {
           this.product = data
           this.isUnavailable = false
-          this.categoryClass = data.category // Set class warna
+          this.categoryClass = data.category
         } else {
-          // Jika kategori BUKAN Men/Women, masuk ke mode Unavailable
+          // Fallback untuk kategori yang tidak didukung (Elektronik, Perhiasan, dll)
           this.isUnavailable = true
-          this.categoryClass = 'unavailable' // Set class abu-abu
+          this.categoryClass = 'unavailable'
         }
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error('Gagal mengambil data:', error)
         this.loading = false
       } finally {
-        this.loading = false // Matikan spinner
+        this.loading = false
       }
     },
+
     nextProduct () {
-      this.index++ // Increment index
-      this.getProduct() // Panggil API lagi
+      this.index++
+      this.getProduct()
     },
-    // Method tutup modal
+
     closeModal () {
       this.showModal = false
     }
   },
   mounted () {
-    this.getProduct() // Panggil API pertama kali saat web dibuka
+    // Panggil API pertama kali saat komponen dimuat
+    this.getProduct()
   }
 }
 </script>
