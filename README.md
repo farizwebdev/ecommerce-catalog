@@ -84,8 +84,8 @@ ecommerce-catalog/
 
 Fariz Husain Albar Mahasiswa Informatika UIN Sunan Kalijaga.
 
- - [🔗 Instagram](https://www.instagram.com/fariz.webdev/)**
+ - [🔗 Link Instagram](https://www.instagram.com/fariz.webdev/)
 
- - [🔗 Linkedln](https://www.linkedin.com/in/fariz-husain-albar/)**
+ - [🔗 Link Linkedln](https://www.linkedin.com/in/fariz-husain-albar/)
 
 Copyright © 2026. All rights reserved.
