@@ -84,7 +84,7 @@ ecommerce-catalog/
 
 Fariz Husain Albar Mahasiswa Informatika UIN Sunan Kalijaga.
 
- - GitHub: farizwebdev
+ - Instagram: farizwebdev
 
  - LinkedIn: Fariz Husain Albar
 
