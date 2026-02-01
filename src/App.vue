@@ -5,8 +5,12 @@
 </template>
 
 <script>
+
+// Components
 import ProductDisplay from './components/ProductDisplay.vue'
-import './assets/style/page.css' // Import CSS global di App.vue
+
+// Global Styles
+import './assets/style/page.css'
 
 export default {
   name: 'App',
@@ -14,4 +18,5 @@ export default {
     ProductDisplay
   }
 }
+
 </script>
